@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ruta Ciclística Alausí - Aventura en los Andes</title>
+    <style>
+        /* Mantenemos los estilos anteriores */
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #2C3E50;
+            --light: #F7F7F7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+        }
+
+        header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        nav {
+            background-color: var(--dark);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            height: 60vh;
+            background: url('/api/placeholder/1200/800') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .route-info {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .route-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .tips-section {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .tip-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .elevation-profile {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--secondary);
+        }
+
+        /* Estilos previos permanecen igual... */
+    </style>
+</head>
+<body>
+    <!-- Header y Nav permanecen igual -->
+    <header>
+        <h1>Ruta Ciclística Alausí</h1>
+        <p>Descubre la magia de los Andes ecuatorianos en bicicleta</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#ruta">La Ruta</a></li>
+            <li><a href="#atractivos">Atractivos</a></li>
+            <li><a href="#consejos">Consejos</a></li>
+            <li><a href="#hospedaje">Hospedaje</a></li>
+            <li><a href="#gastronomia">Gastronomía</a></li>
+            <li><a href="#fotos">Spots Fotográficos</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h2>Aventura en las Alturas</h2>
+            <p>Una experiencia única recorriendo los tesoros de Alausí</p>
+        </div>
+    </div>
+
+    <section id="ruta" class="section">
+        <div class="container">
+            <h2>La Ruta Ciclística</h2>
+            <div class="route-info">
+                <div class="route-stats">
+                    <div class="stat-card">
+                        <h3>Distancia Total</h3>
+                        <p>35 km</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Elevación</h3>
+                        <p>2.347 - 2.890 msnm</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Duración Aprox.</h3>
+                        <p>4-6 horas</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Dificultad</h3>
+                        <p>Moderada-Alta</p>
+                    </div>
+                </div>
+
+                <div class="elevation-profile">
+                    [Perfil de Elevación de la Ruta]
+                </div>
+
+                <h3>Descripción de la Ruta</h3>
+                <p>La ruta inicia en el centro histórico de Alausí, desde donde se asciende hacia el Monumento de San Pedro. Desde allí, se desciende por la histórica Calle Larga hasta la Estación del Tren. La ruta continúa hacia la comunidad de Tolte, pasando por el impresionante Puente Negro, hasta llegar al Mirador Cóndor Puñuna. El retorno incluye una visita a la comunidad de Nizag antes de volver al centro de Alausí.</p>
+                
+                <h3>Puntos de Descanso</h3>
+                <ul>
+                    <li>Parque 13 de Noviembre (km 0)</li>
+                    <li>Estación del Tren (km 8)</li>
+                    <li>Comunidad de Tolte (km 15)</li>
+                    <li>Mirador Cóndor Puñuna (km 22)</li>
+                    <li>Comunidad de Nizag (km 28)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="atractivos" class="section">
+        <div class="container">
+            <h2>Atractivos Turísticos</h2>
+            <div class="card-grid">
+                <!-- Atractivos previos... -->
+                <div class="card">
+                    <img src="img/san_pedro.jpg" alt="Monumento San Pedro">
+                    <div class="card-content">
+                        <h3>Monumento a San Pedro</h3>
+                        <p>Imponente monumento que vigila la ciudad desde lo alto, símbolo de la fe y la cultura alauseña. Ofrece vistas panorámicas de toda la ciudad y el valle.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/cementerio.jfif" alt="Cementerio General">
+                    <div class="card-content">
+                        <h3>Cementerio General</h3>
+                        <p>Sitio histórico que refleja la arquitectura funeraria de la época republicana, con hermosas esculturas y mausoleos.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/iglesia_matriz.jpg" alt="Iglesia Matriz">
+                    <div class="card-content">
+                        <h3>Iglesia Matriz</h3>
+                        <p>Joya arquitectónica colonial con detalles góticos y barrocos que refleja la historia de la ciudad. Interior decorado con arte religioso único.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/calle_larga.jfif" alt="Calle Larga">
+                    <div class="card-content">
+                        <h3>Calle Larga (Simón Bolívar)</h3>
+                        <p>Histórica calle que conserva la arquitectura tradicional y el encanto del antiguo Alausí. Llena de casas coloniales y balcones floridos.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/parque-13-novembre-alausi.jpg" alt="Parque 13 de Noviembre">
+                    <div class="card-content">
+                        <h3>Parque 13 de Noviembre</h3>
+                        <p>Centro histórico de la ciudad, punto de encuentro y descanso con hermosos jardines y una pileta central histórica.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/puente_negro.jpg" alt="Puente Negro">
+                    <div class="card-content">
+                        <h3>Puente Negro</h3>
+                        <p>Estructura histórica ferroviaria que cruza un profundo cañón, ofreciendo vistas espectaculares y oportunidades fotográficas únicas.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/estacion.jpg" alt="Estación del Tren">
+                    <div class="card-content">
+                        <h3>Estación del Tren</h3>
+                        <p>Punto de partida del famoso tren de la Nariz del Diablo, patrimonio histórico ferroviario con museo incluido.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/comunidad_de_tolte.jpg" alt="Comunidad de Tolte">
+                    <div class="card-content">
+                        <h3>Comunidad de Tolte</h3>
+                        <p>Pueblo tradicional con vistas privilegiadas a la Nariz del Diablo y centro de turismo comunitario.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/Comunidad_de_Nizag.jpg" alt="Comunidad de Nizag">
+                    <div class="card-content">
+                        <h3>Comunidad de Nizag</h3>
+                        <p>Comunidad ancestral conocida por su artesanía, agricultura orgánica y la preservación de tradiciones indígenas.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/mirador_condor_pununa.jpg" alt="Mirador Cóndor Puñuna">
+                    <div class="card-content">
+                        <h3>Mirador Cóndor Puñuna</h3>
+                        <p>Espectacular mirador con forma de cóndor que ofrece vistas panorámicas de la región y la Nariz del Diablo.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/Loma_de_Lluglly.jpg" alt="Loma de Lluglly">
+                    <div class="card-content">
+                        <h3>Loma de Lluglly</h3>
+                        <p>Mirador natural con vistas panorámicas de la ciudad y punto ideal para observar atardeceres.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="img/mercado_central.jpg" alt="Mercado Central">
+                    <div class="card-content">
+                        <h3>Mercado Central</h3>
+                        <p>Centro de comercio local donde se pueden degustar platos típicos y comprar productos frescos de la región.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="consejos" class="section tips-section">
+        <div class="container">
+            <h2>Consejos para Ciclistas</h2>
+            
+            <div class="tip-card">
+                <h3>Preparación Física</h3>
+                <ul>
+                    <li>Aclimátate al menos un día antes debido a la altura</li>
+                    <li>Hidrátate constantemente antes y durante el recorrido</li>
+                    <li>Lleva snacks energéticos para el camino</li>
+                    <li>Realiza ejercicios de estiramiento antes de partir</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3>Equipo Necesario</h3>
+                <ul>
+                    <li>Bicicleta de montaña en buen estado</li>
+                    <li>Casco y guantes</li>
+                    <li>Kit de reparación básico</li>
+                    <li>Bomba de aire portátil</li>
+                    <li>Candado para bicicleta</li>
+                    <li>Luces delanteras y traseras</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3>Qué Llevar</h3>
+                <ul>
+                    <li>Protector solar y gorra</li>
+                    <li>Ropa en capas (clima variable)</li>
+                    <li>Impermeable ligero</li>
+                    <li>Mínimo 2 litros de agua</li>
+                    <li>Documentos de identificación</li>
+
+
+                    <section id="hospedaje" class="section" style="background-color: var(--light)">
+                        <div class="container">
+                            <h2>Dónde Hospedarse</h2>
+                            <div class="card-grid">
+                                <div class="card">
+                                    <img src="img/cabanas_manuela.jpg" alt="Cabañas Manuela">
+                                    <div class="card-content">
+                                        <h3>Cabañas Manuela</h3>
+                                        <p>Servicio de SPA y piscina</p>
+                                        <div class="highlight">⭐ Recomendado</div>
+                                        <p>Servicios:</p>
+                                        <ul>
+                                            <li>SPA completo</li>
+                                            <li>Piscina climatizada</li>
+                                            <li>Restaurante</li>
+                                            <li>WiFi gratuito</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                
+                                <div class="card">
+                                    <img src="img/Hotel_Gampala.jpg" alt="Hotel Gampala">
+                                    <div class="card-content">
+                                        <h3>Hotel Gampala</h3>
+                                        <p>Ubicación céntrica con vistas a la ciudad</p>
+                                        <p>Servicios:</p>
+                                        <ul>
+                                            <li>Desayuno incluido</li>
+                                            <li>Parqueadero</li>
+                                            <li>WiFi gratuito</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                
+                    <section id="gastronomia" class="section">
+                        <div class="container">
+                            <h2>Gastronomía Local</h2>
+                            <div class="card-grid">
+                                <div class="card">
+                                    <img src="img/cafeteria_alauccino.jpg" alt="Cafetería Alauccino">
+                                    <div class="card-content">
+                                        <h3>Cafetería Alauccino</h3>
+                                        <p>Especialidad en café de altura y postres artesanales</p>
+                                        <div class="highlight">⭐ Recomendado</div>
+                                        <p>Destacados:</p>
+                                        <ul>
+                                            <li>Café de especialidad</li>
+                                            <li>Pasteles caseros</li>
+                                            <li>Sánduches gourmet</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                
+                                <div class="card">
+                                    <img src="img/cabanas_manuela.jpg" alt="Restaurante Tradicional">
+                                    <div class="card-content">
+                                        <h3>La Diligencia</h3>
+                                        <p>Comida típica de la región</p>
+                                        <p>Especialidades:</p>
+                                        <ul>
+                                            <li>Hornado</li>
+                                            <li>Locro de papa</li>
+                                            <li>Fritada</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                
+                    <section id="fotos" class="section photo-spots">
+                        <div class="container">
+                            <h2>Mejores Spots Fotográficos</h2>
+                            <div class="card-grid">
+                                <div class="card">
+                                    <img src="img/san_pedro.jpg" alt="Mirador San Pedro">
+                                    <div class="card-content">
+                                        <h3>Mirador San Pedro</h3>
+                                        <p>Mejor hora: Atardecer</p>
+                                        <p>Tipo de fotos: Paisaje urbano, panorámicas</p>
+                                    </div>
+                                </div>
+                
+                                <div class="card">
+                                    <img src="img/puente_negro.jpg" alt="Puente Negro">
+                                    <div class="card-content">
+                                        <h3>Puente Negro</h3>
+                                        <p>Mejor hora: Amanecer</p>
+                                        <p>Tipo de fotos: Arquitectura, histórico</p>
+                                    </div>
+                                </div>
+                
+                                <div class="card">
+                                    <img src="img/mirador_condor_pununa.jpg" alt="Cóndor Puñuna">
+                                    <div class="card-content">
+                                        <h3>Mirador Cóndor Puñuna</h3>
+                                        <p>Mejor hora: Media mañana</p>
+                                        <p>Tipo de fotos: Paisaje, aventura</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                
+                    <section class="qr-section">
+                        <div class="container">
+                            <h2>Accede a la Ruta Completa</h2>
+                            <p>Escanea el código QR para obtener la ruta detallada en tu dispositivo</p>
+                            <div class="qr-code">
+                                <img src="img/QR_ruta.jfif" alt="Código QR">
+                            </div>
+                        </div>
+                    </section>
+                
+                    <footer>
+                        <div class="container">
+                            <h3>Ruta Ciclística Alausí</h3>
+                            <p>Una aventura inolvidable en el corazón de los Andes ecuatorianos</p>
+                            <p>© 2024 Todos los derechos reservados</p>
+                        </div>
+                    </footer>
+                </body>
+                </html>
